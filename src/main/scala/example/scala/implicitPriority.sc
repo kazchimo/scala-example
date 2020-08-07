@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/47339575/low-priority-and-high-priority-implicits-in-scala
 object Scanner {
   trait Console { def display(item: String) }
   trait AlarmHandler extends (() => Unit)

@@ -6,4 +6,5 @@ def lowerKind(tpe: Type): Type =
   else tpe
 
 lowerKind(typeOf[List[_]].typeConstructor)
-lowerKind(typeOf[Map[_, _]].typeConstructor)
+val map = typeOf[Map[_, _]].typeConstructor
+appliedType(map, List(typeOf[Any], typeOf[Any], typeOf[Any]))
