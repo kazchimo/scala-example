@@ -18,10 +18,15 @@ val circeDependencies = Seq(
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.2.0-M4" % Test,
   "org.typelevel" %% "cats-core" % "2.1.1",
+  "org.atnos" %% "eff" % "5.9.0"
   "com.chuusai" %% "shapeless" % "2.3.3",
   "eu.timepit" %% "refined" % "0.9.15",
   "io.circe"     %% "circe-refined"        % "0.14.0-M1"
 ) ++ circeDependencies
+
+addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full)
+
+scalacOptions += "-Ypartial-unification"
 
 lazy val root = (project in file("."))
   .settings(name := "scala-example")

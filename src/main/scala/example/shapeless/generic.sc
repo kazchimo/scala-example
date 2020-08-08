@@ -1,20 +1,7 @@
-import shapeless.{DefaultCaseClassDefns, Generic, nonGeneric}
+import shapeless.{Generic, HNil, ::}
 
-object ALaCarte {
-  object PersonDefns extends DefaultCaseClassDefns {
-    type C = Person
-    val ops = Ops
-  }
+object A
 
-  object Person extends PersonDefns.CaseClassCompanion
+A :: HNil
 
-  class Person(val name: String) extends PersonDefns.CaseClass {
-    @nonGeneric val upperName = name.toUpperCase
-    def age(): Long = 20
-  }
-}
-
-import ALaCarte._
-
-Generic[Person]
-
+Generic.materialize[A.type, 1 :: HNil]
